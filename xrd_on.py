@@ -72,7 +72,7 @@ if uploaded_file is not None:
                     tpr_list.append(1.0)
                     fpr_list.append(1.0)
                     
-                    roc_auc = np.trapz(tpr_list, fpr_list)
+                    roc_auc = stats.integrate.simpson(y=tpr_list, x=fpr_list)
                     st.metric(label="ROC AUC Score", value=f"{roc_auc:.4f}")
             
             st.markdown("---")
